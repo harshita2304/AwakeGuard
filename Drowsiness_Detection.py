@@ -135,7 +135,7 @@ header_label.pack(pady=22)
 
 # Create a frame for buttons
 button_frame = tk.Frame(root, bg='#ADD8E6')
-button_frame.pack(expand=True, fill='both')
+button_frame.pack(pady=20)
 
 # Add a button to start the detection
 start_button = tk.Button(button_frame, text="Start Detection", command=start_detection, font=("Helvetica", 14), bg='#32CD32', fg='white', padx=10, pady=5)
@@ -162,7 +162,7 @@ contact_button = tk.Button(bottom_button_frame, text="Contact Us", command=conta
 contact_button.grid(row=0, column=0, padx=10)
 
 # Add a Meet Us button
-meet_button = tk.Button(bottom_button_frame, text="Meet Us", command=meet_us, font=("Helvetica", 14), bg='#FF4500', fg='white', padx=10, pady=5)
+meet_button = tk.Button(bottom_button_frame, text="Meet Our Team", command=meet_us, font=("Helvetica", 14), bg='#FF4500', fg='white', padx=10, pady=5)
 meet_button.grid(row=0, column=1, padx=10)
 
 # Add a Leave Feedback button
