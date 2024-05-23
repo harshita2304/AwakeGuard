@@ -92,11 +92,23 @@ def toggle_detection():
         toggle_button.config(text="Pause Detection")
     else:
         toggle_button.config(text="Resume Detection")
+        
+# Function to exit the detection
+def exit_detection():
+    global is_running
+    is_running = False
+    root.destroy()
 
 # Function to show info message
 def show_info():
-    messagebox.showinfo("Info", "Click 'Start Detection' to begin the drowsiness detection system.")
-
+    info_text = (
+        "Click 'Start Detection' to begin the drowsiness detection system.\n"
+        "Click 'Pause Detection' to pause the drowsiness detection system.\n"
+        "Click 'Resume Detection' to resume the drowsiness detection system.\n"
+        "Click 'Exit Detection' to exit the drowsiness detection system."
+    )
+    messagebox.showinfo("Info", info_text)
+    
 # Create the main Tkinter window
 root = tk.Tk()
 root.title("Drowsiness Detection System")
@@ -106,8 +118,8 @@ root.geometry("500x400")
 root.configure(bg='#ADD8E6')
 
 # Add a header label
-header_label = tk.Label(root, text="AwakeGuard Drowsiness Detection", font=("Helvetica", 16, "bold"), bg='#ADD8E6')
-header_label.pack(pady=20)
+header_label = tk.Label(root, text="AwakeGuard Drowsiness Detection System", font=("Verdana", 22, "bold"), bg='#ADD8E6')
+header_label.pack(pady=22)
 
 # Create a frame for buttons
 button_frame = tk.Frame(root, bg='#ADD8E6')
@@ -115,15 +127,19 @@ button_frame.pack(pady=20)
 
 # Add a button to start the detection
 start_button = tk.Button(button_frame, text="Start Detection", command=start_detection, font=("Helvetica", 14), bg='#32CD32', fg='white', padx=10, pady=5)
-start_button.grid(row=0, column=0, padx=20)
+start_button.grid(row=0, column=0, padx=20,pady=10)
 
 # Add a toggle button to pause/resume the detection
 toggle_button = tk.Button(button_frame, text="Pause Detection", command=toggle_detection, font=("Helvetica", 14), bg='#FFD700', fg='black', padx=10, pady=5)
-toggle_button.grid(row=0, column=1, padx=20)
+toggle_button.grid(row=1, column=0, padx=20,pady=10)
+
+# Add an exit button to stop detection and exit the application
+exit_button = tk.Button(button_frame, text="Exit Detection", command=exit_detection, font=("Helvetica", 14), bg='#FF6347', fg='white', padx=10, pady=5)
+exit_button.grid(row=2, column=0, padx=20,pady=10)
 
 # Add an info button
 info_button = tk.Button(button_frame, text="Info", command=show_info, font=("Helvetica", 14), bg='#1E90FF', fg='white', padx=10, pady=5)
-info_button.grid(row=0, column=2, padx=20)
+info_button.grid(row=3, column=0, padx=20,pady=10)
 
 # Run the Tkinter main loop
 root.mainloop()
