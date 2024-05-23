@@ -136,7 +136,7 @@ root.geometry(f"{screen_width}x{screen_height}")
 root.configure(bg='#ADD8E6')
 
 # Add a header label
-header_label = tk.Label(root, text="AwakeGuard Drowsiness Detection System", font=("Verdana", 22, "bold"), bg='#ADD8E6')
+header_label = tk.Label(root, text="AwakeGuard\nDriver Sleepiness Detection System", font=("Verdana", 22, "bold"), bg='#ADD8E6')
 header_label.pack(pady=22)
 
 # Create a frame for buttons
