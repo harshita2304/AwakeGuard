@@ -116,7 +116,7 @@ def contact_us():
 
 def meet_us():
     import webbrowser
-    webbrowser.open("https://example.com/meet")  # Replace with your meet us URL
+    webbrowser.open("index.html")  # Replace with your meet us URL
 
 def leave_feedback():
     import webbrowser
