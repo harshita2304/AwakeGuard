@@ -124,7 +124,12 @@ def leave_feedback():
 # Create the main Tkinter window
 root = tk.Tk()
 root.title("Drowsiness Detection System")
-root.geometry("500x400")
+
+# Get the screen width and height
+screen_width = root.winfo_screenwidth()
+screen_height = root.winfo_screenheight()
+
+root.geometry(f"{screen_width}x{screen_height}")
 
 # Set background color
 root.configure(bg='#ADD8E6')
