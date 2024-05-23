@@ -109,6 +109,18 @@ def show_info():
     )
     messagebox.showinfo("Info", info_text)
     
+def contact_us():
+    import webbrowser
+    webbrowser.open("https://example.com/contact")  # Replace with your contact URL
+
+def meet_us():
+    import webbrowser
+    webbrowser.open("https://example.com/meet")  # Replace with your meet us URL
+
+def leave_feedback():
+    import webbrowser
+    webbrowser.open("https://example.com/feedback")  # Replace with your feedback URL
+    
 # Create the main Tkinter window
 root = tk.Tk()
 root.title("Drowsiness Detection System")
@@ -123,23 +135,38 @@ header_label.pack(pady=22)
 
 # Create a frame for buttons
 button_frame = tk.Frame(root, bg='#ADD8E6')
-button_frame.pack(pady=20)
+button_frame.pack(expand=True, fill='both')
 
 # Add a button to start the detection
 start_button = tk.Button(button_frame, text="Start Detection", command=start_detection, font=("Helvetica", 14), bg='#32CD32', fg='white', padx=10, pady=5)
-start_button.grid(row=0, column=0, padx=20,pady=10)
+start_button.grid(row=0, column=0, padx=20, pady=10)
 
 # Add a toggle button to pause/resume the detection
 toggle_button = tk.Button(button_frame, text="Pause Detection", command=toggle_detection, font=("Helvetica", 14), bg='#FFD700', fg='black', padx=10, pady=5)
-toggle_button.grid(row=1, column=0, padx=20,pady=10)
+toggle_button.grid(row=1, column=0, padx=20, pady=10)
 
 # Add an exit button to stop detection and exit the application
 exit_button = tk.Button(button_frame, text="Exit Detection", command=exit_detection, font=("Helvetica", 14), bg='#FF6347', fg='white', padx=10, pady=5)
-exit_button.grid(row=2, column=0, padx=20,pady=10)
+exit_button.grid(row=2, column=0, padx=20, pady=10)
 
 # Add an info button
 info_button = tk.Button(button_frame, text="Info", command=show_info, font=("Helvetica", 14), bg='#1E90FF', fg='white', padx=10, pady=5)
-info_button.grid(row=3, column=0, padx=20,pady=10)
+info_button.grid(row=3, column=0, padx=20, pady=10)
 
-# Run the Tkinter main loop
+# Create another frame for the bottom buttons
+bottom_button_frame = tk.Frame(root, bg='#ADD8E6')
+bottom_button_frame.pack(side=tk.BOTTOM, pady=20)
+
+# Add a Contact Us button
+contact_button = tk.Button(bottom_button_frame, text="Contact Us", command=contact_us, font=("Helvetica", 14), bg='#FFA500', fg='white', padx=10, pady=5)
+contact_button.grid(row=0, column=0, padx=10)
+
+# Add a Meet Us button
+meet_button = tk.Button(bottom_button_frame, text="Meet Us", command=meet_us, font=("Helvetica", 14), bg='#FF4500', fg='white', padx=10, pady=5)
+meet_button.grid(row=0, column=1, padx=10)
+
+# Add a Leave Feedback button
+feedback_button = tk.Button(bottom_button_frame, text="Leave Feedback", command=leave_feedback, font=("Helvetica", 14), bg='#FF6347', fg='white', padx=10, pady=5)
+feedback_button.grid(row=0, column=2, padx=10)
+
 root.mainloop()
