@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Feedback Form</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #f0f0f0;
+        padding: 20px;
+      }
+      .container {
+        max-width: 600px;
+        background-color: #fff;
+        border-radius: 8px;
+        padding: 20px;
+        margin: auto;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      }
+      h2 {
+        text-align: center;
+        color: #333;
+      }
+      label {
+        display: block;
+        margin-bottom: 8px;
+        font-weight: bold;
+      }
+      input[type="text"],
+      textarea {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 20px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        resize: vertical;
+      }
+      input[type="submit"] {
+        background-color: #4caf50;
+        color: white;
+        padding: 12px 20px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        font-size: 16px;
+      }
+      input[type="submit"]:hover {
+        background-color: #45a049;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h2>Leave Feedback</h2>
+      <form action="https://forms.gle/XxWhMwseKrdCa7Yp6" method="POST">
+        <label for="entry.1234567890">Name:</label>
+        <input
+          type="text"
+          id="entry.1234567890"
+          name="entry.1234567890"
+          required
+        />
+
+        <label for="entry.0987654321">Rate us:</label>
+        <input
+          type="number"
+          id="entry.0987654321"
+          name="entry.0987654321"
+          min="1"
+          max="10"
+          required
+        />
+
+        <label for="entry.2468013579">Share Your Feedback</label>
+        <textarea
+          id="entry.2468013579"
+          name="entry.2468013579"
+          rows="6"
+          required
+        ></textarea>
+
+        <input type="submit" value="Submit Feedback" />
+      </form>
+    </div>
+  </body>
+</html>

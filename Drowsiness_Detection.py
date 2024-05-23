@@ -111,7 +111,7 @@ def show_info():
     
 def contact_us():
     import webbrowser
-    webbrowser.open("https://example.com/contact")  # Replace with your contact URL
+    webbrowser.open("contact_us.html")  # Replace with your contact URL
 
 def meet_us():
     import webbrowser
@@ -119,7 +119,7 @@ def meet_us():
 
 def leave_feedback():
     import webbrowser
-    webbrowser.open("https://example.com/feedback")  # Replace with your feedback URL
+    webbrowser.open("feedback_form.html")  # Replace with your feedback URL
     
 # Create the main Tkinter window
 root = tk.Tk()
