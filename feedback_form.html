@@ -22,66 +22,88 @@
         text-align: center;
         color: #333;
       }
-      label {
-        display: block;
-        margin-bottom: 8px;
-        font-weight: bold;
-      }
-      input[type="text"],
-      textarea {
-        width: 100%;
-        padding: 10px;
-        margin-bottom: 20px;
-        border: 1px solid #ccc;
-        border-radius: 4px;
-        resize: vertical;
-      }
-      input[type="submit"] {
-        background-color: #4caf50;
-        color: white;
-        padding: 12px 20px;
-        border: none;
-        border-radius: 4px;
-        cursor: pointer;
-        font-size: 16px;
-      }
-      input[type="submit"]:hover {
-        background-color: #45a049;
-      }
     </style>
   </head>
   <body>
     <div class="container">
       <h2>Leave Feedback</h2>
-      <form action="https://forms.gle/XxWhMwseKrdCa7Yp6" method="POST">
-        <label for="entry.1234567890">Name:</label>
-        <input
-          type="text"
-          id="entry.1234567890"
-          name="entry.1234567890"
-          required
-        />
 
-        <label for="entry.0987654321">Rate us:</label>
-        <input
-          type="number"
-          id="entry.0987654321"
-          name="entry.0987654321"
-          min="1"
-          max="10"
-          required
-        />
+      <iframe
+        id="JotFormIFrame-241432719789064"
+        title="Form"
+        onload="window.parent.scrollTo(0,0)"
+        allowtransparency="true"
+        allow="geolocation; microphone; camera; fullscreen"
+        src="https://form.jotform.com/241432719789064"
+        frameborder="0"
+        style="min-width: 100%; max-width: 100%; height: 539px; border: none"
+        scrolling="no"
+      >
+      </iframe>
+      <script src="https://cdn.jotfor.ms/s/umd/latest/for-form-embed-handler.js"></script>
+      <script>
+        window.jotformEmbedHandler(
+          "iframe[id='JotFormIFrame-241432719789064']",
+          "https://form.jotform.com/"
+        );
+      </script>
 
-        <label for="entry.2468013579">Share Your Feedback</label>
-        <textarea
-          id="entry.2468013579"
-          name="entry.2468013579"
-          rows="6"
-          required
-        ></textarea>
+      <script type="text/javascript">
+        window.handleIFrameMessage = function (e) {
+          var args = e.data.split(":");
+          var iframe = document.getElementById("JotFormIFrame-" + args[2]);
+          if (!iframe) return;
+          switch (args[0]) {
+            case "scrollIntoView":
+              iframe.scrollIntoView();
+              break;
+            case "setHeight":
+              iframe.style.height = args[1] + "px";
+              break;
+            case "collapseErrorPage":
+              if (iframe.clientHeight > window.innerHeight) {
+                iframe.style.height = window.innerHeight + "px";
+              }
+              break;
+            case "reloadPage":
+              window.location.reload();
+              break;
+          }
+          var isJotForm = e.origin.indexOf("jotform") > -1;
+          if (
+            isJotForm &&
+            "contentWindow" in iframe &&
+            "postMessage" in iframe.contentWindow
+          ) {
+            var urls = {
+              docurl: encodeURIComponent(document.URL),
+              referrer: encodeURIComponent(document.referrer),
+            };
+            iframe.contentWindow.postMessage(
+              JSON.stringify({
+                type: "urls",
+                value: urls,
+              }),
+              "*"
+            );
+          }
+        };
+        if (window.addEventListener) {
+          window.addEventListener("message", handleIFrameMessage, false);
+        } else if (window.attachEvent) {
+          window.attachEvent("onmessage", handleIFrameMessage);
+        }
+      </script>
 
-        <input type="submit" value="Submit Feedback" />
-      </form>
+      <p style="text-align: center">
+        <a
+          href="https://form.jotform.com/241432719789064"
+          rel="noopener"
+          target="_blank"
+          style="display: none"
+          >Create your own form with JotForm</a
+        >
+      </p>
     </div>
   </body>
 </html>
