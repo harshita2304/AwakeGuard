@@ -38,8 +38,9 @@ h1 {
 
 .team-member img {
   border-radius: 50%;
-  max-width: 100%;
-  height: auto;
+  width: 150px; /* Fixed width */
+  height: 150px; /* Fixed height */
+  object-fit: cover; /* Ensure the image covers the dimensions */
 }
 
 h2 {
