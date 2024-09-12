@@ -1,55 +1,110 @@
 body {
-  font-family: Arial, sans-serif;
-  background-color: #f4f4f4;
+  font-family: "Poppins", Arial, sans-serif;
+  background-color: #f0f2f5;
   margin: 0;
   padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
 }
 
 .team-container {
   text-align: center;
-  padding: 50px;
+  padding: 60px;
   background-color: #fff;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
   max-width: 1200px;
   margin: 50px auto;
-  border-radius: 10px;
+  border-radius: 15px;
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.3s ease;
+}
+
+.team-container:hover {
+  transform: scale(1.02);
 }
 
 h1 {
-  font-size: 2.5em;
-  margin-bottom: 20px;
+  font-size: 3em;
   color: #333;
+  margin-bottom: 30px;
+  position: relative;
+}
+
+h1::after {
+  content: "";
+  display: block;
+  width: 80px;
+  height: 4px;
+  background-color: #1e90ff;
+  margin: 10px auto 0;
+  border-radius: 5px;
 }
 
 .team-members {
   display: flex;
-  justify-content: space-around;
+  justify-content: space-evenly;
   flex-wrap: wrap;
+  gap: 20px;
 }
 
 .team-member {
-  background-color: #e7e7e7;
-  padding: 20px;
-  margin: 10px;
-  border-radius: 10px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  max-width: 250px;
+  background-color: #fff;
+  padding: 25px;
+  margin: 15px;
+  border-radius: 15px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  max-width: 280px;
+  transition: transform 0.4s ease, box-shadow 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.team-member:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
 }
 
 .team-member img {
   border-radius: 50%;
-  width: 150px; /* Fixed width */
-  height: 150px; /* Fixed height */
-  object-fit: cover; /* Ensure the image covers the dimensions */
+  width: 150px;
+  height: 150px;
+  object-fit: cover;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.team-member:hover img {
+  transform: scale(1.1);
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15);
 }
 
 h2 {
-  font-size: 1.5em;
+  font-size: 1.8em;
   color: #333;
-  margin-top: 10px;
+  margin-top: 15px;
+  transition: color 0.3s ease;
 }
 
 p {
   font-size: 1em;
   color: #666;
+  margin-top: 10px;
+  line-height: 1.5;
+}
+
+.team-member:hover h2 {
+  color: #1e90ff;
+}
+
+@media (max-width: 768px) {
+  .team-members {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .team-member {
+    max-width: 100%;
+  }
 }

@@ -5,22 +5,86 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Feedback Form</title>
     <style>
+      /* Global Styles */
       body {
-        font-family: Arial, sans-serif;
-        background-color: #f0f0f0;
-        padding: 20px;
+        font-family: "Poppins", Arial, sans-serif;
+        background: linear-gradient(135deg, #1e90ff, #00bfff);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
       }
+
+      /* Container */
       .container {
-        max-width: 600px;
-        background-color: #fff;
-        border-radius: 8px;
-        padding: 20px;
-        margin: auto;
-        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        max-width: 900px;
+        background: #fff;
+        border-radius: 15px;
+        padding: 40px;
+        box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+        transform: translateY(-50px);
+        animation: slideIn 0.8s ease-out forwards;
+        overflow: hidden;
       }
+
+      /* Title */
       h2 {
         text-align: center;
         color: #333;
+        font-size: 2em;
+        margin-bottom: 20px;
+        position: relative;
+      }
+
+      h2::after {
+        content: "";
+        display: block;
+        width: 100px;
+        height: 3px;
+        background-color: #1e90ff;
+        margin: 10px auto 0;
+      }
+
+      /* Iframe Styling */
+      iframe {
+        width: 100%;
+        height: 600px;
+        border-radius: 12px;
+        border: none;
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+        transition: transform 0.3s ease-in-out;
+      }
+
+      iframe:hover {
+        transform: scale(1.02);
+      }
+
+      /* Responsive Styling */
+      @media (max-width: 768px) {
+        .container {
+          padding: 20px;
+        }
+
+        iframe {
+          height: 500px;
+        }
+
+        h2 {
+          font-size: 1.8em;
+        }
+      }
+
+      /* Animation for the container */
+      @keyframes slideIn {
+        from {
+          transform: translateY(100px);
+          opacity: 0;
+        }
+        to {
+          transform: translateY(0);
+          opacity: 1;
+        }
       }
     </style>
   </head>
@@ -36,17 +100,10 @@
         allow="geolocation; microphone; camera; fullscreen"
         src="https://form.jotform.com/241432719789064"
         frameborder="0"
-        style="min-width: 100%; max-width: 100%; height: 539px; border: none"
         scrolling="no"
       >
       </iframe>
       <script src="https://cdn.jotfor.ms/s/umd/latest/for-form-embed-handler.js"></script>
-      <script>
-        window.jotformEmbedHandler(
-          "iframe[id='JotFormIFrame-241432719789064']",
-          "https://form.jotform.com/"
-        );
-      </script>
 
       <script type="text/javascript">
         window.handleIFrameMessage = function (e) {
@@ -94,16 +151,6 @@
           window.attachEvent("onmessage", handleIFrameMessage);
         }
       </script>
-
-      <p style="text-align: center">
-        <a
-          href="https://form.jotform.com/241432719789064"
-          rel="noopener"
-          target="_blank"
-          style="display: none"
-          >Create your own form with JotForm</a
-        >
-      </p>
     </div>
   </body>
 </html>

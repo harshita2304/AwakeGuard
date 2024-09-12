@@ -5,41 +5,139 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Contact Us</title>
     <style>
+      /* Global Styles */
       body {
-        font-family: Arial, sans-serif;
-        background-color: #f0f0f0;
-        padding: 20px;
+        font-family: "Poppins", Arial, sans-serif;
+        background: linear-gradient(135deg, #1e90ff, #00bfff);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
       }
+
+      /* Container */
       .container {
         max-width: 600px;
-        background-color: #fff;
-        border-radius: 8px;
-        padding: 20px;
-        margin: auto;
-        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        background: #fff;
+        border-radius: 15px;
+        padding: 40px;
+        box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+        transform: translateY(-50px);
+        animation: slideIn 0.8s ease-out forwards;
       }
+
+      /* Title */
       h2 {
         text-align: center;
         color: #333;
+        font-size: 2em;
+        margin-bottom: 20px;
+        position: relative;
       }
+
+      h2::after {
+        content: "";
+        display: block;
+        width: 100px;
+        height: 3px;
+        background-color: #1e90ff;
+        margin: 10px auto 0;
+      }
+
+      /* List Styles */
       ul {
         list-style-type: none;
         padding: 0;
       }
+
+      /* List Items */
       li {
-        margin-bottom: 10px;
+        margin-bottom: 15px;
+        opacity: 0;
+        animation: fadeInUp 0.5s ease forwards;
       }
+
+      li:nth-child(1) {
+        animation-delay: 0.3s;
+      }
+
+      li:nth-child(2) {
+        animation-delay: 0.5s;
+      }
+
+      li:nth-child(3) {
+        animation-delay: 0.7s;
+      }
+
+      li:nth-child(4) {
+        animation-delay: 0.9s;
+      }
+
+      /* Button Styles */
       a {
         display: block;
         text-decoration: none;
-        padding: 10px 20px;
+        padding: 15px 0;
         background-color: #1e90ff;
         color: white;
-        border-radius: 4px;
+        border-radius: 8px;
         text-align: center;
+        font-size: 1.2em;
+        position: relative;
+        transition: background-color 0.4s, transform 0.3s;
       }
+
       a:hover {
         background-color: #007bff;
+        transform: translateY(-5px);
+        box-shadow: 0 8px 20px rgba(0, 123, 255, 0.5);
+      }
+
+      /* Button Ripple Effect */
+      a::before {
+        content: "";
+        position: absolute;
+        width: 300%;
+        height: 300%;
+        top: 50%;
+        left: 50%;
+        background: radial-gradient(
+          circle,
+          rgba(255, 255, 255, 0.5),
+          transparent
+        );
+        transform: translate(-50%, -50%) scale(0);
+        transition: transform 0.6s ease;
+        border-radius: 50%;
+        z-index: 0;
+      }
+
+      a:hover::before {
+        transform: translate(-50%, -50%) scale(1);
+      }
+
+      /* Animations */
+      @keyframes fadeInUp {
+        from {
+          opacity: 0;
+          transform: translateY(50px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      @keyframes slideIn {
+        from {
+          transform: translateY(-100px);
+          opacity: 0;
+        }
+        to {
+          transform: translateY(0);
+          opacity: 1;
+        }
       }
     </style>
   </head>
@@ -49,7 +147,7 @@
       <ul>
         <li><a href="tel:+917524968427">Call Us</a></li>
         <li>
-          <a href="www.linkedin.com/in/harshita-srivastava-6805ab20b"
+          <a href="https://www.linkedin.com/in/harshita-srivastava-6805ab20b"
             >LinkedIn</a
           >
         </li>
