@@ -1,3 +1,13 @@
+import sys
+import os
+
+def resource_path(relative_path):
+    try:
+        base_path = sys._MEIPASS  # PyInstaller temp folder
+    except Exception:
+        base_path = os.path.abspath(".")
+    return os.path.join(base_path, relative_path)
+
 import cv2
 import numpy as np
 import mediapipe as mp
@@ -10,12 +20,12 @@ class DrowsinessDetector:
     def __init__(self):
         # 🔊 Initialize sound
         pygame.mixer.init()
-        self.alert_sound = pygame.mixer.Sound("beep_1s.wav")
+        self.alert_sound = pygame.mixer.Sound(resource_path("beep_1s.wav"))
         self.is_playing = False
 
         # MediaPipe setup
         self.base_options = mp.tasks.BaseOptions(
-            model_asset_path="face_landmarker.task"
+            model_asset_path=resource_path("face_landmarker.task")
         )
 
         self.options = mp.tasks.vision.FaceLandmarkerOptions(
