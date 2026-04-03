@@ -24,7 +24,7 @@ class App:
         title.pack(pady=20)
 
         # Video Frame
-        self.video_label = tk.Label(root)
+        self.video_label = tk.Label(root, bg="#0f172a")
         self.video_label.pack()
 
         # Buttons Frame
