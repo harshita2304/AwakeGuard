@@ -1,6 +1,4 @@
-opencv-python==4.7.0.72
-dlib==19.24.1
-imutils==0.5.4
-Pillow==9.4.0
-pygame==2.5.0
-scipy==1.11.1
+opencv-python>=4.9.0
+mediapipe==0.10.33
+numpy>=2.0.0
+Pillow>=10.0.0
